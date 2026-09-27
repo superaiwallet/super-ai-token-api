@@ -24,7 +24,7 @@ function afficher(t) {
       famille = l.famille;
       console.log(`\n[${famille}]`);
     }
-    const marque = l.etat === 'ok' ? '+' : l.etat === 'inconnu' ? '?' : ' ';
+    const marque = { ok: '+', voir: '!', inconnu: '?', info: ' ' }[l.etat] || ' ';
     console.log(`  ${marque} ${l.libelle.padEnd(26)} ${l.valeur}   (${l.source})`);
   }
 

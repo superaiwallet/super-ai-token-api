@@ -2,8 +2,11 @@
 
 **Read any token in seconds. No account, no key, no sign-up.**
 
-One HTTP call returns 21 points about a token — and every single point names the
-source it came from, with a link back to it.
+One HTTP call returns up to 21 points about a token — and every single point names
+the source it came from, with a link back to it.
+
+21 points on Ethereum, BNB Chain and Tron; 18 on Solana, where some of the
+contract questions do not apply.
 
 <img src="https://analyse.superaiwallet.com/badge/0x514910771AF9Ca656af840dff83E8264EcF986CA.svg" alt="Super AI reading for LINK">
 
@@ -108,18 +111,22 @@ A whole page inside yours, in **eighteen languages**.
 | `libelle` | what was looked at, in plain words |
 | `valeur` | what was found, already formatted for reading |
 | `etat` | `ok`, `info` or `inconnu` |
-| `source` | who said it — GoPlus, Honeypot.is, DexScreener, CoinGecko, GitHub |
+| `source` | who said it — GoPlus, Honeypot.is, DexScreener, CoinGecko, Jupiter, GitHub — or `null` when the point does not apply on that chain |
 | `lien_source` | link to that source, so anyone can check |
 
-`etat` is deliberately not a verdict:
+`etat` is deliberately not a verdict. It has four values:
 
-- `ok` — the point came back with a definite answer
+- `ok` — the point came back with a settled answer
 - `info` — a figure or a fact, neither good nor bad on its own
-- `inconnu` — nobody had the answer
+- `voir` — the answer came back, and it is one the reader will want to look at closely
+- `inconnu` — nobody had the answer, or the point does not apply on that chain
+
+Handle all four. `voir` is not an error and not a warning — it simply marks the
+lines a reader should not skip.
 
 ---
 
-## The 21 points
+## The points
 
 **Contract** — code published · sale simulation · buy / sell tax · owner ·
 more can be created · code can be replaced · transfers can be paused ·
@@ -132,6 +139,9 @@ addresses can be blocked
 **Holders** — holders · held by the 10 largest
 
 **Project** — website · white paper · social accounts · code repository
+
+On Solana, the three contract questions that have no meaning there are left out,
+which is why the total reads 18 instead of 21.
 
 ---
 

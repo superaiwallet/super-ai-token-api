@@ -39,7 +39,8 @@ function enTexte(t) {
   ];
 
   for (const l of t.lignes) {
-    const marque = l.etat === 'ok' ? '✓' : l.etat === 'inconnu' ? '·' : '–';
+    // four states: ok, info, voir (worth a close look), inconnu (nobody knew)
+    const marque = { ok: '✓', voir: '❗', inconnu: '·', info: '–' }[l.etat] || '–';
     lignes.push(`${marque} ${l.libelle}: ${l.valeur}  _(${l.source})_`);
   }
 

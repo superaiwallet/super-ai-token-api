@@ -31,7 +31,7 @@ def afficher(t: dict) -> None:
         if l["famille"] != famille:
             famille = l["famille"]
             print(f"\n[{famille}]")
-        marque = {"ok": "+", "inconnu": "?"}.get(l["etat"], " ")
+        marque = {"ok": "+", "voir": "!", "inconnu": "?", "info": " "}.get(l["etat"], " ")
         print(f"  {marque} {l['libelle']:<26} {l['valeur']}   ({l['source']})")
 
     print(f"\nFull reading: {t['fiche']}")
