@@ -1,6 +1,7 @@
-# Super AI — token reading API
+# Super AI — token security API
 
-**Read any token in seconds. No account, no key, no sign-up.**
+**Honeypot check, contract permissions, liquidity, holders and project — in one
+call. Free, no account, no API key, no sign-up.**
 
 One HTTP call returns up to 21 points about a token — and every single point names
 the source it came from, with a link back to it.
@@ -11,6 +12,30 @@ contract questions do not apply.
 <img src="https://analyse.superaiwallet.com/badge/0x514910771AF9Ca656af840dff83E8264EcF986CA.svg" alt="Super AI reading for LINK">
 
 *(that badge above is live — it is the API answering right now)*
+
+---
+
+## What it checks
+
+**Honeypot check** — a real sale simulation is run against the token and the
+result is reported, together with the buy and sell tax that was measured.
+
+**Rug-pull signals** — whether more tokens can be minted, whether the contract
+code can be replaced, whether transfers can be paused, whether addresses can be
+blacklisted, and whether an owner still holds those powers.
+
+**Liquidity and age** — how much liquidity sits in the pools, how many pools on
+how many exchanges, and how old the first one is.
+
+**Holder concentration** — how many holders there are, how much the ten largest
+hold between them, and how many of those ten are contracts rather than people.
+
+**Project reality check** — website, white paper, social accounts, and whether
+the code repository is still being updated.
+
+It is a scanner for **reading**, not for deciding. There is no risk score, no
+verdict and no "safe" or "unsafe" label — every line is an observation with the
+name of the source that produced it, and a link so anyone can check it.
 
 ---
 
@@ -57,6 +82,15 @@ An SVG that updates by itself. Shows how many of the points came back with an an
 ```
 
 A whole page inside yours, in **eighteen languages**.
+
+It follows the reader's browser by default. To pin one language, add `?l=` and
+its code:
+
+```
+https://analyse.superaiwallet.com/j/<TOKEN_ADDRESS>?l=es
+```
+
+An unknown code falls back to English, so it is always safe to pass one.
 
 ---
 
@@ -175,10 +209,20 @@ Add it to a group and it answers any token address pasted there — no command n
 
 ## Languages
 
-The embedded page (`/j/`) and the bot speak eighteen languages:
-English, français, español, português (BR), português (PT), Deutsch, italiano,
-Nederlands, русский, Türkçe, العربية, עברית, 中文, 日本語, 한국어, हिन्दी,
-Tiếng Việt, Bahasa Indonesia.
+The embedded page (`/j/`) and the bot speak eighteen languages. Pass the code as
+`?l=` on `/j/`:
+
+| Code | | Code | | Code | |
+|---|---|---|---|---|---|
+| `en` | English | `fr` | français | `es` | español |
+| `pt` | português | `pt-br` | português (BR) | `de` | Deutsch |
+| `it` | italiano | `nl` | Nederlands | `ru` | русский |
+| `tr` | Türkçe | `ar` | العربية | `he` | עברית |
+| `zh` | 中文 | `ja` | 日本語 | `ko` | 한국어 |
+| `hi` | हिन्दी | `vi` | Tiếng Việt | `id` | Bahasa Indonesia |
+
+The badge and the API answer in English; the wording that varies by language is
+in the reading page and in the bot.
 
 ---
 
